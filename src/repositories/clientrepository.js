@@ -12,8 +12,13 @@ const createClient = (clientData) => {
     });
 };
 
+const indexClients = () => {
+    return prisma.clients.findMany();
+};
+
 export default {
     createClient,
+    indexClients,
     // You can add more client-related methods here
     // e.g., findClientById, updateClient, deleteClient, etc.
 };

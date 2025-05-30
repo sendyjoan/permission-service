@@ -12,8 +12,19 @@ const create = async (req, res) => {
     }
 }
 
+const index = async (req, res) => {
+    try {
+        const clients = await clientService.indexClients();
+        res.status(200).json(clients);
+    } catch (error) {
+        console.error("Error fetching clients:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
 export default {
     create,
+    index,
     // You can add more client-related methods here
     // e.g., findClientById, updateClient, deleteClient, etc.
 };
