@@ -20,6 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.0",
     "nodemon": "^3.1.10",
+    "permission-service": "file:",
     "prisma": "^6.8.2"
   }
 }
