@@ -22,9 +22,24 @@ const index = async (req, res) => {
     }
 };
 
+const detail = async (req, res) => {
+    try {
+        const appKey = req.params.appKey;
+        const client = await clientService.getClientByAppKey(appKey);
+        if (!client) {
+            return res.status(404).json({ error: "Client not found" });
+        }
+        res.status(200).json(client);
+    } catch (error) {
+        console.error("Error fetching client by app key:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
 export default {
     create,
     index,
+    detail,
     // You can add more client-related methods here
     // e.g., findClientById, updateClient, deleteClient, etc.
 };

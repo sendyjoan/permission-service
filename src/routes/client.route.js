@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.post('/', upload.none(), controller.create);
 router.get('/', controller.index);
+router.get('/:appKey', controller.detail);
 
 export default router;

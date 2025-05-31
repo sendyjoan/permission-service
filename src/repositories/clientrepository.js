@@ -16,9 +16,16 @@ const indexClients = () => {
     return prisma.clients.findMany();
 };
 
+const getClientByAppKey = (appKey) => {
+    return prisma.clients.findUnique({
+        where: { app_key: appKey },
+    });
+};
+
 export default {
     createClient,
     indexClients,
+    getClientByAppKey,
     // You can add more client-related methods here
     // e.g., findClientById, updateClient, deleteClient, etc.
 };
